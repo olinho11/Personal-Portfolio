@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minimal Portfolio Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Portfolio navigation">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark"></span>
+        <span>Line / Form</span>
+      </a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#practice">Practice</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="intro-title">
+        <div class="physics-wrap" aria-hidden="true">
+          <canvas id="physics-canvas"></canvas>
+        </div>
+        <div class="hero-copy">
+          <p class="kicker">Independent digital designer</p>
+          <h1 id="intro-title">
+            Oliver Ueno
+          </h1>
+          <p class="intro">
+            14 Years old. Striving to be the best that I can.
+          </p>
+          <p class="intro intro-focus">
+            IB Programme / Software Development / Entrepreneurship
+          </p>
+          <div class="hero-notes" aria-label="Portfolio focus areas">
+            <span>Builder</span>
+            <span>Student</span>
+            <span>Founder mindset</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="status-band" aria-label="Current availability and focus">
+        <div class="status-track">
+          <p>Available for selected collaborations</p>
+          <p>Software development / Robotics / Entrepreneurship</p>
+          <p>Building ambitious projects while in the IB Programme</p>
+          <p aria-hidden="true">Available for selected collaborations</p>
+          <p aria-hidden="true">Software development / Robotics / Entrepreneurship</p>
+          <p aria-hidden="true">Building ambitious projects while in the IB Programme</p>
+        </div>
+      </section>
+
+      <section class="section-shell" id="work">
+        <div class="section-heading">
+          <p class="kicker">Selected work</p>
+          <h2>Projects with a precise point of view.</h2>
+        </div>
+
+        <div class="project-list">
+          <article class="project-item" data-theme="ember">
+            <a
+              href="https://safewalk-eurekahacks.vercel.app"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open SafeWalk website"
+            >
+              <span class="project-count">001</span>
+              <span class="project-title">SafeWalk</span>
+              <span class="project-meta">Flask / React / Overpass API</span>
+              <span class="project-year">2026</span>
+              <span class="project-action">Open site</span>
+            </a>
+          </article>
+          <article class="project-item" data-theme="ink">
+            <a href="#top" aria-label="Go to top of portfolio page">
+              <span class="project-count">002</span>
+              <span class="project-title">Personal Portfolio</span>
+              <span class="project-meta">Javascript / Interface / Design</span>
+              <span class="project-year">2026</span>
+              <span class="project-action">Back to top</span>
+            </a>
+          </article>
+          <article class="project-item" data-theme="moss">
+            <a
+              href="https://3-body-problem.vercel.app"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open 3-Body Problem Simulator website"
+            >
+              <span class="project-count">003</span>
+              <span class="project-title">3-Body Problem Simulator</span>
+              <span class="project-meta">Python / Interactive / Node.js</span>
+              <span class="project-year">2026</span>
+              <span class="project-action">Open site</span>
+            </a>
+          </article>
+          <article class="project-item" data-theme="cobalt">
+            <a
+              href="https://github.com/olinho11/MG996R-Robotic-Arm"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open MG996R Robotic Arm GitHub repository"
+            >
+              <span class="project-count">004</span>
+              <span class="project-title">MG996R Robotic Arm</span>
+              <span class="project-meta">Robotics / C++ / Physics</span>
+              <span class="project-year">2026</span>
+              <span class="project-action">Open repo</span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="practice-section" id="practice">
+        <div class="practice-copy">
+          <p class="kicker">Practice</p>
+          <h2>Learning fast, building faster.</h2>
+          <p>
+            I like projects where code, design, and real-world problem solving all meet in the same place.
+          </p>
+        </div>
+        <div class="practice-grid">
+          <article>
+            <span>01</span>
+            <h3>Programming</h3>
+            <p>Building daily with Python, JavaScript, and C++.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Entrepreneurship</h3>
+            <p>Turning ideas into projects and learning from every launch.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Personal Interests</h3>
+            <p>Piano, chess, and soccer keep me sharp outside of code.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-copy">
+          <p class="kicker">Contact</p>
+          <h2>Bring the odd brief. Keep the meeting short.</h2>
+          <div class="contact-row">
+            <a href="mailto:oliverueno38@gmail.com" data-contact-message="Send a note. He checks this one.">oliverueno38@gmail.com</a>
+            <a href="https://github.com/olinho11" target="_blank" rel="noreferrer" data-contact-message="Tiny projects, big experiments.">GitHub</a>
+            <a href="https://www.linkedin.com/in/oliver-ueno-11a5a638a/" target="_blank" rel="noreferrer" data-contact-message="Say hi over there too.">LinkedIn</a>
+          </div>
+        </div>
+
+        <button class="contact-creature" type="button" aria-label="Contact helper">
+          <span class="creature-bubble">Tap a contact path.</span>
+          <span class="creature-body">
+            <span class="creature-arm arm-left"></span>
+            <span class="creature-arm arm-right"></span>
+            <span class="creature-eye eye-left"></span>
+            <span class="creature-eye eye-right"></span>
+            <span class="creature-nose"></span>
+          </span>
+          <span class="creature-shadow"></span>
+        </button>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
