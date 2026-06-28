@@ -1,3 +1,37 @@
+const loaderScreen = document.querySelector(".loader-screen");
+
+if (loaderScreen) {
+  const loaderStartedAt = performance.now();
+  const minimumLoaderTime = 950;
+  const maximumLoaderTime = 2400;
+  let loaderHidden = false;
+
+  function hideLoader() {
+    if (loaderHidden) return;
+
+    loaderHidden = true;
+    loaderScreen.setAttribute("aria-hidden", "true");
+    loaderScreen.classList.add("is-hidden");
+
+    window.setTimeout(() => {
+      loaderScreen.remove();
+    }, 620);
+  }
+
+  function hideLoaderAfterMinimum() {
+    const elapsed = performance.now() - loaderStartedAt;
+    const remaining = Math.max(0, minimumLoaderTime - elapsed);
+    window.setTimeout(hideLoader, remaining);
+  }
+
+  if (document.readyState === "complete") {
+    hideLoaderAfterMinimum();
+  } else {
+    window.addEventListener("load", hideLoaderAfterMinimum, { once: true });
+    window.setTimeout(hideLoader, maximumLoaderTime);
+  }
+}
+
 const projects = document.querySelectorAll(".project-item");
 const canvas = document.querySelector("#physics-canvas");
 const contactLinks = document.querySelectorAll("[data-contact-message]");

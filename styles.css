@@ -88,22 +88,6 @@ nav {
   border-radius: 50%;
 }
 
-nav {
-  gap: clamp(14px, 3vw, 36px);
-  color: var(--muted);
-  font-size: 0.86rem;
-  font-weight: 600;
-}
-
-nav a {
-  padding: 12px 0;
-  transition: color 180ms ease;
-}
-
-nav a:hover {
-  color: var(--ink);
-}
-
 main {
   overflow: hidden;
 }
@@ -185,6 +169,42 @@ h1 {
   color: var(--ink);
   font-size: 0.82rem;
   font-weight: 800;
+}
+
+.hero-contact {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 54px;
+  margin-top: 28px;
+  padding: 0 22px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.hero-contact::after {
+  content: "↓";
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.hero-contact:hover,
+.hero-contact:focus-visible {
+  background: var(--paper);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.hero-contact:hover::after,
+.hero-contact:focus-visible::after {
+  transform: translateY(3px);
 }
 
 .physics-wrap {
@@ -271,32 +291,35 @@ h1 {
 .status-track {
   display: flex;
   width: max-content;
-  animation: status-scroll 26s linear infinite;
+  animation: status-scroll 24s linear infinite;
+  will-change: transform;
 }
 
-.status-band p {
+.status-group {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex: 0 0 clamp(300px, 34vw, 520px);
+  flex: 0 0 auto;
+  gap: clamp(36px, 7vw, 96px);
   min-height: 92px;
-  margin: 0;
-  padding: 28px clamp(16px, 4vw, 48px);
-  border-right: 1px solid rgba(246, 244, 239, 0.22);
+  padding-right: clamp(36px, 7vw, 96px);
+}
+
+.status-band span {
+  display: inline-block;
   color: rgba(246, 244, 239, 0.84);
   font-size: 0.92rem;
   font-weight: 600;
   line-height: 1.35;
-  text-align: center;
+  white-space: nowrap;
 }
 
 @keyframes status-scroll {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -701,11 +724,6 @@ h3 {
     width: min(100% - 24px, var(--max));
   }
 
-  nav {
-    gap: 14px;
-    font-size: 0.78rem;
-  }
-
   .hero,
   .section-heading,
   .practice-copy,
@@ -732,11 +750,8 @@ h3 {
     max-height: 420px;
   }
 
-  .status-band p {
-    flex-basis: 300px;
+  .status-group {
     min-height: 74px;
-    border-right: 0;
-    border-right: 1px solid rgba(246, 244, 239, 0.22);
   }
 
   .section-shell,
@@ -850,5 +865,127 @@ h3 {
 
   .status-track {
     animation: none;
+  }
+}
+
+
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: center;
+  transition: opacity 520ms ease, visibility 520ms ease;
+  will-change: opacity;
+}
+
+.loader-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-field {
+  position: absolute;
+  inset: 0;
+  opacity: 0.95;
+}
+
+.loader-field span {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ink);
+  animation: loader-drift 1300ms ease-in-out infinite alternate;
+}
+
+.loader-field span:nth-child(1) { left: 22%; top: 38%; background: var(--ember); }
+.loader-field span:nth-child(2) { left: 36%; top: 58%; animation-delay: 120ms; }
+.loader-field span:nth-child(3) { left: 49%; top: 34%; background: var(--moss); animation-delay: 240ms; }
+.loader-field span:nth-child(4) { left: 62%; top: 56%; animation-delay: 360ms; }
+.loader-field span:nth-child(5) { left: 74%; top: 42%; background: var(--cobalt); animation-delay: 480ms; }
+.loader-field span:nth-child(6) { left: 82%; top: 62%; animation-delay: 600ms; }
+
+.loader-copy {
+  position: relative;
+  z-index: 1;
+  width: min(360px, calc(100% - 48px));
+  text-align: center;
+}
+
+.loader-copy p {
+  margin: 0 0 18px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  line-height: 0.9;
+}
+
+.loader-copy span {
+  display: block;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.loader-line {
+  height: 1px;
+  background: rgba(23, 22, 18, 0.18);
+  overflow: hidden;
+}
+
+.loader-line::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--ink);
+  transform-origin: left;
+  animation: loader-line 950ms ease forwards;
+}
+
+@keyframes loader-drift {
+  to {
+    transform: translate3d(18px, -22px, 0);
+  }
+}
+
+@keyframes loader-line {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 520px) {
+  .loader-field span {
+    width: 7px;
+    height: 7px;
+  }
+
+  .loader-copy {
+    width: min(300px, calc(100% - 36px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-screen,
+  .loader-field span,
+  .loader-line::before {
+    animation: none;
+    transition-duration: 1ms;
+  }
+
+  .loader-line::before {
+    transform: scaleX(1);
   }
 }
