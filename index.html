@@ -3,204 +3,348 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oliver Ueno</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
-      rel="stylesheet"
+    <meta
+      name="description"
+      content="Oliver Ueno is a 14-year-old IB student building full-stack products, physics simulations, and ambitious student communities."
     />
+    <meta name="theme-color" content="#090d10" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>Oliver Ueno | Student Builder & Developer</title>
+    <link rel="canonical" href="https://www.oliverueno.site/" />
+    <link rel="icon" href="assets/oliver-profile.jpg?v=20260719c" type="image/jpeg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Oliver Ueno" />
+    <meta property="og:title" content="Oliver Ueno | Student Builder & Developer" />
+    <meta
+      property="og:description"
+      content="Products, physics tools, and student communities built from ambitious ideas."
+    />
+    <meta property="og:url" content="https://www.oliverueno.site/" />
+    <meta property="og:image" content="https://www.oliverueno.site/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Oliver Ueno portfolio preview" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Oliver Ueno | Student Builder & Developer" />
+    <meta
+      name="twitter:description"
+      content="Products, physics tools, and student communities built from ambitious ideas."
+    />
+    <meta name="twitter:image" content="https://www.oliverueno.site/assets/og-image.jpg" />
+
     <script defer src="/_vercel/insights/script.js"></script>
-    <link rel="stylesheet" href="styles.css" />
-    <noscript>
-      <style>
-        .loader-screen {
-          display: none;
-        }
-      </style>
-    </noscript>
+    <link rel="stylesheet" href="styles.css?v=20260719h" />
   </head>
-  <body>
-    <div class="loader-screen" role="status" aria-live="polite" aria-label="Loading portfolio">
-      <div class="loader-field" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="loader-copy">
-        <p>Oliver Ueno</p>
-        <div class="loader-line"></div>
-        <span>loading portfolio</span>
-      </div>
-    </div>
+  <body class="dashboard-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <div class="grain" aria-hidden="true"></div>
-
-    <header class="site-header" aria-label="Portfolio navigation">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="brand-mark"></span>
-        <span>Oliver Ueno</span>
+    <header class="dash-header">
+      <a class="dash-mark" href="#about" aria-label="Oliver Ueno profile">
+        <img src="assets/oliver-profile.jpg?v=20260719b" width="200" height="200" alt="" />
       </a>
+      <p class="dash-header-title">Oliver Ueno / Portfolio 2026</p>
+      <p class="dash-header-location">Waterloo, Canada</p>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="intro-title">
-        <div class="physics-wrap" aria-hidden="true">
-          <canvas id="physics-canvas"></canvas>
+    <main class="dashboard-main" id="main-content">
+      <section class="dash-card dash-intro" id="about" aria-labelledby="intro-title">
+        <div class="dash-card-heading">
+          <span>01</span>
+          <p>Profile</p>
         </div>
-        <div class="hero-copy">
-          <p class="kicker">Independent digital designer</p>
-          <h1 id="intro-title">
-            Oliver Ueno
-          </h1>
-          <p class="intro">
-            14 Years old. Striving to be the best that I can.
-          </p>
-          <p class="intro intro-focus">
-            IB Programme / Software Development / Entrepreneurship
-          </p>
-          <div class="hero-notes" aria-label="Portfolio focus areas">
-            <span>Builder</span>
-            <span>Student</span>
-            <span>Founder mindset</span>
+
+        <div class="dash-intro-copy">
+          <div class="dash-intro-text">
+            <p class="dash-kicker">IB student · Waterloo, Ontario</p>
+            <h1 id="intro-title">Oliver Ueno.</h1>
+            <p class="dash-lede">
+              I’m a 14-year-old high school student taking the IB programme who turns
+              ideas into useful products, helps organize a student hackathon, and takes
+              on ambitious projects with others.
+            </p>
           </div>
-          <a class="hero-contact" href="#contact" aria-label="Scroll to contact section">
-            <span>Contact me</span>
-          </a>
+
+          <figure class="dash-profile-photo">
+            <img
+              src="assets/oliver-profile.jpg?v=20260719b"
+              width="200"
+              height="200"
+              alt="Portrait of Oliver Ueno"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </figure>
+        </div>
+
+        <div class="dash-intro-footer" id="contact">
+          <p><span>Focused on</span> Full-stack products, student-led events, and creating opportunities for other students</p>
+          <div class="dash-contact-group">
+            <span class="dash-connect-label">Connect with me</span>
+            <div class="dash-contact-links" aria-label="Contact links">
+              <a href="mailto:oliverueno38@gmail.com">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3.5 5.75h17v12.5h-17z" />
+                  <path d="m4.25 6.5 7.75 6 7.75-6" />
+                </svg>
+                Email
+              </a>
+              <a href="https://github.com/olinho11" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 2.8a9.3 9.3 0 0 0-2.94 18.12c.47.09.64-.2.64-.45v-1.8c-2.62.57-3.17-1.11-3.17-1.11-.43-1.09-1.05-1.38-1.05-1.38-.86-.59.06-.58.06-.58.95.07 1.45.98 1.45.98.85 1.44 2.22 1.03 2.76.79.08-.61.33-1.03.6-1.27-2.09-.24-4.29-1.05-4.29-4.65 0-1.03.37-1.87.98-2.53-.1-.24-.42-1.2.09-2.5 0 0 .79-.25 2.6.97A9 9 0 0 1 12 7.07a9 9 0 0 1 2.37.32c1.8-1.22 2.6-.97 2.6-.97.5 1.3.18 2.26.09 2.5.61.66.98 1.5.98 2.53 0 3.61-2.2 4.4-4.3 4.64.34.3.64.87.64 1.75v2.63c0 .25.17.54.65.45A9.3 9.3 0 0 0 12 2.8Z"
+                  />
+                </svg>
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/oliver-ueno-11a5a638a/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5.1 8.2v10.7" />
+                  <path d="M5.1 5.1v.1" />
+                  <path d="M9.7 18.9v-6.1c0-2.7 4.7-3 4.7.5v5.6" />
+                  <path d="M9.7 8.2v10.7" />
+                </svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="status-band" aria-label="Current availability and focus">
-        <div class="status-track">
-          <div class="status-group">
-            <span>Available for selected collaborations</span>
-            <span>Software development / Robotics / Entrepreneurship</span>
-            <span>Building ambitious projects while in the IB Programme</span>
+      <aside class="dash-card dash-proof" aria-labelledby="proof-title">
+        <div class="dash-card-heading">
+          <span>02</span>
+          <h2 id="proof-title">Proof of work</h2>
+        </div>
+
+        <div class="dash-metrics">
+          <div class="dash-metric achievement-stat">
+            <strong
+              data-count-up
+              data-target="5300"
+              data-prefix="$"
+              data-suffix="+"
+              aria-label="$5,300 plus in funding secured"
+            >$5,300+</strong>
+            <p>Funding secured</p>
+            <small>For a free student non-profit event</small>
           </div>
-          <div class="status-group" aria-hidden="true">
-            <span>Available for selected collaborations</span>
-            <span>Software development / Robotics / Entrepreneurship</span>
-            <span>Building ambitious projects while in the IB Programme</span>
+
+          <div class="dash-metric achievement-stat">
+            <strong
+              data-count-up
+              data-target="120"
+              data-suffix="+"
+              aria-label="120 plus student entrants"
+            >120+</strong>
+            <p>Student entrants</p>
+            <small>Joined JecHacks from across the community</small>
           </div>
-        </div>
-      </section>
 
-      <section class="section-shell" id="work">
-        <div class="section-heading">
-          <p class="kicker">Selected work</p>
-          <h2>Projects with a precise point of view.</h2>
-        </div>
-
-        <div class="project-list">
-          <article class="project-item" data-theme="ember">
-            <a
-              href="https://safewalk-eurekahacks.vercel.app"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Open SafeWalk website"
-            >
-              <span class="project-count">001</span>
-              <span class="project-title">SafeWalk</span>
-              <span class="project-meta">Flask / React / Overpass API</span>
-              <span class="project-year">2026</span>
-              <span class="project-action">Open site</span>
-            </a>
-          </article>
-          <article class="project-item" data-theme="ink">
-            <a href="#top" aria-label="Go to top of portfolio page">
-              <span class="project-count">002</span>
-              <span class="project-title">Personal Portfolio</span>
-              <span class="project-meta">Javascript / Interface / Design</span>
-              <span class="project-year">2026</span>
-              <span class="project-action">Back to top</span>
-            </a>
-          </article>
-          <article class="project-item" data-theme="moss">
-            <a
-              href="https://3-body-problem.vercel.app"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Open 3-Body Problem Simulator website"
-            >
-              <span class="project-count">003</span>
-              <span class="project-title">3-Body Problem Simulator</span>
-              <span class="project-meta">Python / Interactive / Node.js</span>
-              <span class="project-year">2026</span>
-              <span class="project-action">Open site</span>
-            </a>
-          </article>
-          <article class="project-item" data-theme="cobalt">
-            <a
-              href="https://github.com/olinho11/MG996R-Robotic-Arm"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Open MG996R Robotic Arm GitHub repository"
-            >
-              <span class="project-count">004</span>
-              <span class="project-title">MG996R Robotic Arm</span>
-              <span class="project-meta">Robotics / C++ / Physics</span>
-              <span class="project-year">2026</span>
-              <span class="project-action">Open repo</span>
-            </a>
-          </article>
-        </div>
-      </section>
-
-      <section class="practice-section" id="practice">
-        <div class="practice-copy">
-          <p class="kicker">Practice</p>
-          <h2>Learning fast, building faster.</h2>
-          <p>
-            I like projects where code, design, and real-world problem solving all meet in the same place.
-          </p>
-        </div>
-        <div class="practice-grid">
-          <article>
-            <span>01</span>
-            <h3>Programming</h3>
-            <p>Building daily with Python, JavaScript, and C++.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Entrepreneurship</h3>
-            <p>Turning ideas into projects and learning from every launch.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Personal Interests</h3>
-            <p>Piano, chess, and soccer keep me sharp outside of code.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="contact-section" id="contact">
-        <div class="contact-copy">
-          <p class="kicker">Contact</p>
-          <h2>Bring the odd brief. Keep the meeting short.</h2>
-          <div class="contact-row">
-            <a href="mailto:oliverueno38@gmail.com" data-contact-message="Send a note. He checks this one.">oliverueno38@gmail.com</a>
-            <a href="https://github.com/olinho11" target="_blank" rel="noreferrer" data-contact-message="Tiny projects, big experiments.">GitHub</a>
-            <a href="https://www.linkedin.com/in/oliver-ueno-11a5a638a/" target="_blank" rel="noreferrer" data-contact-message="Say hi over there too.">LinkedIn</a>
+          <div class="dash-metric achievement-stat">
+            <strong data-count-up data-target="5" aria-label="5 projects shipped">5</strong>
+            <p>Projects shipped</p>
+            <small>Across software, physics, and community</small>
           </div>
         </div>
+      </aside>
 
-        <button class="contact-creature" type="button" aria-label="Contact helper">
-          <span class="creature-bubble">Tap a contact path.</span>
-          <span class="creature-body">
-            <span class="creature-arm arm-left"></span>
-            <span class="creature-arm arm-right"></span>
-            <span class="creature-eye eye-left"></span>
-            <span class="creature-eye eye-right"></span>
-            <span class="creature-nose"></span>
+      <section class="dash-card dash-stack" aria-labelledby="stack-title">
+        <div class="dash-card-heading">
+          <span>03</span>
+          <h2 id="stack-title">Working stack</h2>
+        </div>
+
+        <ul class="dash-stack-list" aria-label="Technologies Oliver works with">
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Next.js</li>
+          <li>Node.js</li>
+          <li>Python</li>
+          <li>C++</li>
+          <li>Flask</li>
+          <li>Supabase</li>
+          <li>HTML / CSS</li>
+          <li>Git</li>
+        </ul>
+
+        <a class="dash-beyond-link" href="outside.html">
+          <span class="dash-beyond-copy">
+            <strong>Beyond coding</strong>
           </span>
-          <span class="creature-shadow"></span>
-        </button>
+        </a>
+      </section>
+
+      <section class="dash-card dash-work" id="work" aria-labelledby="work-title">
+        <div class="dash-work-heading">
+          <div class="dash-card-heading">
+            <span>04</span>
+            <h2 id="work-title">Selected work</h2>
+          </div>
+          <p>Four things I’ve taken from idea to something people can actually use.</p>
+        </div>
+
+        <div class="dash-project-viewport" data-project-viewport>
+          <div class="dash-project-grid" data-project-rail>
+            <button
+              class="dash-project dash-project-jec"
+              type="button"
+              data-project-id="jechacks"
+              aria-haspopup="dialog"
+              aria-controls="project-dialog"
+            >
+              <span class="dash-project-image">
+                <img
+                  src="assets/projects/jechacks.webp"
+                  width="1440"
+                  height="900"
+                  decoding="async"
+                  alt="JecHacks homepage"
+                />
+              </span>
+              <span class="dash-project-copy">
+                <span class="dash-project-meta">Community · Live 2026</span>
+                <strong>JecHacks</strong>
+                <span>$5.3K funded · 120+ entrants · 12-hour event</span>
+                <i>Co-founder and organizer</i>
+              </span>
+              <span class="dash-project-detail">View details</span>
+            </button>
+
+            <button
+              class="dash-project dash-project-safe"
+              type="button"
+              data-project-id="safewalk"
+              aria-haspopup="dialog"
+              aria-controls="project-dialog"
+            >
+              <span class="dash-project-image">
+                <img
+                  class="dash-project-logo"
+                  src="assets/projects/safewalk-logo.jpg"
+                  width="480"
+                  height="384"
+                  loading="lazy"
+                  decoding="async"
+                  alt="SafeWalk streetlight logo"
+                />
+              </span>
+              <span class="dash-project-copy">
+                <span class="dash-project-meta">Navigation · Hackathon</span>
+                <strong>SafeWalk</strong>
+                <span>Safer routing with explainable environmental scoring</span>
+                <i>Routing, UX, deployment, and fixes</i>
+              </span>
+              <span class="dash-project-detail">View details</span>
+            </button>
+
+            <button
+              class="dash-project dash-project-physics"
+              type="button"
+              data-project-id="three-body"
+              aria-haspopup="dialog"
+              aria-controls="project-dialog"
+            >
+              <span class="dash-project-image">
+                <img
+                  class="dash-project-logo"
+                  src="assets/projects/three-body-logo.jpg"
+                  width="480"
+                  height="460"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Three-Body Simulator orbit logo"
+                />
+              </span>
+              <span class="dash-project-copy">
+                <span class="dash-project-meta">Physics · Interactive lab</span>
+                <strong>Three-Body Simulator</strong>
+                <span>RK4, Verlet, and Euler with live chaos analytics</span>
+                <i>Designed and built independently</i>
+              </span>
+              <span class="dash-project-detail">View details</span>
+            </button>
+
+            <button
+              class="dash-project dash-project-packet"
+              type="button"
+              data-project-id="projectpacket"
+              aria-haspopup="dialog"
+              aria-controls="project-dialog"
+            >
+              <span class="dash-project-image">
+                <img
+                  class="dash-project-logo"
+                  src="assets/projects/projectpacket-logo.png"
+                  width="1024"
+                  height="1024"
+                  loading="lazy"
+                  decoding="async"
+                  alt="ProjectPacket logo"
+                />
+              </span>
+              <span class="dash-project-copy">
+                <span class="dash-project-meta">SaaS · Live MVP</span>
+                <strong>ProjectPacket</strong>
+                <span>One link for client assets, approvals, and access controls</span>
+                <i>Research, product design, and full-stack build</i>
+              </span>
+              <span class="dash-project-detail">View details</span>
+            </button>
+          </div>
+        </div>
       </section>
     </main>
 
-    <script src="script.js"></script>
+    <div class="project-dialog-layer" data-project-dialog hidden>
+      <div class="project-dialog-backdrop" data-dialog-close></div>
+      <section
+        class="project-dialog"
+        id="project-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-dialog-title"
+      >
+        <button class="project-dialog-close" type="button" data-dialog-close aria-label="Close project details">
+          <span aria-hidden="true"></span>
+        </button>
+
+        <p class="project-dialog-meta" data-dialog-meta></p>
+        <h2 id="project-dialog-title" data-dialog-title></h2>
+        <p class="project-dialog-summary" data-dialog-summary></p>
+
+        <div class="project-dialog-facts">
+          <div>
+            <span>Built</span>
+            <strong data-dialog-date></strong>
+          </div>
+          <div>
+            <span>My role</span>
+            <strong data-dialog-role></strong>
+          </div>
+          <div>
+            <span>Status</span>
+            <strong data-dialog-status></strong>
+          </div>
+        </div>
+
+        <div class="project-dialog-decision">
+          <span>Strongest decision</span>
+          <p data-dialog-decision></p>
+        </div>
+
+        <ul class="project-dialog-tags" data-dialog-tags aria-label="Project technologies"></ul>
+        <div class="project-dialog-links" data-dialog-links></div>
+      </section>
+    </div>
+
+    <script src="script.js?v=20260719b"></script>
   </body>
 </html>
