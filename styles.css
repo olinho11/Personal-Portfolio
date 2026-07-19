@@ -5200,8 +5200,10 @@ body > * {
   height: 100%;
   display: flex;
   gap: 9px;
-  animation: dash-project-loop 36s linear 1.1s infinite;
+  animation: dash-project-loop var(--rail-duration, 36s) linear 1.1s infinite;
+  transform: translate3d(0, 0, 0);
   will-change: transform;
+  backface-visibility: hidden;
 }
 
 .dash-project-grid.is-looping .dash-project {
@@ -5217,8 +5219,12 @@ body > * {
 }
 
 @keyframes dash-project-loop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
   to {
-    transform: translate3d(calc(-50% - 4.5px), 0, 0);
+    transform: translate3d(var(--rail-shift, -50%), 0, 0);
   }
 }
 
@@ -5743,7 +5749,7 @@ body > * {
   animation-play-state: paused;
 }
 
-.dash-project-grid.is-looping.is-resuming {
+.dash-project-grid.is-looping.is-resuming:not(.is-paused) {
   animation-play-state: running;
 }
 

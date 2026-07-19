@@ -225,37 +225,112 @@ projectPreviews.forEach((preview) => {
 });
 
 let projectRailClones = [];
+let projectRailResizeFrame = 0;
+let lastProjectRailViewportWidth = 0;
+
+function getOriginalProjectCards() {
+  if (!projectRail) return [];
+  return Array.from(projectRail.children).filter(
+    (card) => !card.classList.contains("dash-project-clone"),
+  );
+}
 
 function stopProjectRail() {
   if (!projectRail) return;
 
-  projectRail.classList.remove("is-looping", "is-paused");
+  if (projectRailResizeFrame) {
+    cancelAnimationFrame(projectRailResizeFrame);
+    projectRailResizeFrame = 0;
+  }
+
+  projectRail.classList.remove("is-looping", "is-paused", "is-resuming");
   projectRailClones.forEach((clone) => clone.remove());
   projectRailClones = [];
+  lastProjectRailViewportWidth = 0;
+  projectRail.style.removeProperty("--rail-shift");
+  projectRail.style.removeProperty("--rail-duration");
 }
 
-function startProjectRail() {
-  if (!projectRail) return;
+function startProjectRail({ force = false } = {}) {
+  if (!projectRail || !projectViewport) return;
 
   if (reducedMotion.matches || !finePointer.matches || !dashboardDesktop.matches) {
     stopProjectRail();
     return;
   }
 
-  if (projectRailClones.length) return;
+  const viewportWidth = projectViewport.getBoundingClientRect().width;
+  if (!viewportWidth) return;
 
-  const originalCards = Array.from(projectRail.children);
+  if (
+    !force &&
+    projectRailClones.length &&
+    Math.abs(viewportWidth - lastProjectRailViewportWidth) < 1
+  ) {
+    return;
+  }
 
-  projectRailClones = originalCards.map((card) => {
-    const clone = card.cloneNode(true);
-    clone.classList.add("dash-project-clone");
-    clone.setAttribute("aria-hidden", "true");
-    clone.setAttribute("tabindex", "-1");
-    projectRail.appendChild(clone);
-    return clone;
+  projectRailClones.forEach((clone) => clone.remove());
+  projectRailClones = [];
+  projectRail.classList.remove("is-looping", "is-resuming");
+  projectRail.style.removeProperty("--rail-shift");
+  projectRail.style.removeProperty("--rail-duration");
+
+  const originalCards = getOriginalProjectCards();
+  if (!originalCards.length) return;
+
+  projectRail.classList.add("is-looping", "is-paused");
+
+  const railStyles = window.getComputedStyle(projectRail);
+  const railGap = Number.parseFloat(railStyles.columnGap || railStyles.gap) || 0;
+  const projectSetWidth =
+    originalCards.reduce((total, card) => total + card.getBoundingClientRect().width, 0) +
+    railGap * originalCards.length;
+
+  if (!projectSetWidth) {
+    stopProjectRail();
+    return;
+  }
+
+  const totalSets = Math.max(2, Math.ceil(viewportWidth / projectSetWidth) + 1);
+
+  for (let setIndex = 1; setIndex < totalSets; setIndex += 1) {
+    originalCards.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.classList.add("dash-project-clone");
+      clone.setAttribute("aria-hidden", "true");
+      clone.setAttribute("tabindex", "-1");
+      clone.querySelectorAll("a, button, [tabindex]").forEach((control) => {
+        control.setAttribute("tabindex", "-1");
+      });
+      projectRail.appendChild(clone);
+      projectRailClones.push(clone);
+    });
+  }
+
+  const measuredSetWidth =
+    projectRailClones[0].getBoundingClientRect().left -
+    originalCards[0].getBoundingClientRect().left;
+  const loopDistance = measuredSetWidth || projectSetWidth;
+
+  projectRail.style.setProperty("--rail-shift", String(-loopDistance) + "px");
+  projectRail.style.setProperty(
+    "--rail-duration",
+    String(Math.max(24, loopDistance / 40)) + "s",
+  );
+  lastProjectRailViewportWidth = viewportWidth;
+
+  requestAnimationFrame(() => {
+    if (!document.hidden) projectRail.classList.remove("is-paused");
   });
+}
 
-  projectRail.classList.add("is-looping");
+function scheduleProjectRailRebuild() {
+  if (projectRailResizeFrame) cancelAnimationFrame(projectRailResizeFrame);
+  projectRailResizeFrame = requestAnimationFrame(() => {
+    projectRailResizeFrame = 0;
+    startProjectRail({ force: true });
+  });
 }
 
 let lastProjectTrigger = null;
@@ -361,8 +436,15 @@ document.addEventListener("keydown", (event) => {
 });
 
 startProjectRail();
-finePointer.addEventListener("change", startProjectRail);
-dashboardDesktop.addEventListener("change", startProjectRail);
+finePointer.addEventListener("change", scheduleProjectRailRebuild);
+dashboardDesktop.addEventListener("change", scheduleProjectRailRebuild);
+
+if (projectViewport && "ResizeObserver" in window) {
+  const projectRailResizeObserver = new ResizeObserver(scheduleProjectRailRebuild);
+  projectRailResizeObserver.observe(projectViewport);
+} else {
+  window.addEventListener("resize", scheduleProjectRailRebuild, { passive: true });
+}
 
 document.addEventListener("visibilitychange", () => {
   projectRail?.classList.toggle("is-paused", document.hidden);
@@ -373,7 +455,10 @@ document.addEventListener("visibilitychange", () => {
 });
 
 reducedMotion.addEventListener("change", (event) => {
-  if (!event.matches) return;
+  if (!event.matches) {
+    scheduleProjectRailRebuild();
+    return;
+  }
 
   root.classList.remove("reveal-ready");
   showAllRevealItems();
